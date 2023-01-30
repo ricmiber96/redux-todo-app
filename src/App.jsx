@@ -1,10 +1,22 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import store from './store/store'
 
 function App() {
   const [count, setCount] = useState(0)
+  console.log('Initial state: ', store.getState())
+  store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about actions' })
+  store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about reducers' })
+  store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about stores' })
 
+  store.dispatch({ type: 'filters/statusFilterChanged', payload: 'Active' })
+
+store.dispatch({
+  type: 'filters/colorFilterChanged',
+  payload: { color: 'red', changeType: 'added' }
+})
+  console.log('Initial state: ', store.getState())
   return (
     <div className="App">
       <div>
