@@ -13,31 +13,25 @@ function nextTodoId (todos) {
 export default function todoReducer (state = initialState, action) {
   switch (action.type) {
     case 'todo/todoAdded': {
-      return {
-        ...state.todos,
-        todos: [
-          ...state.todos,
-          {
-            id: nextTodoId(state.todos),
-            text: action.payload,
-            completed: false
-          }
-        ]
-      }
+      return [
+        ...state,
+        {
+          id: nextTodoId(state),
+          text: action.payload,
+          completed: false
+        }
+      ]
     }
     case 'todo/todoToggle': {
-      return {
-        ...state,
-        todos: state.todos.map((todo, i) => {
-          if (todo.id === action.payload) {
-            return todo
-          }
-          return {
-            ...todo,
-            completed: !todo.completed
-          }
-        })
-      }
+      return state.map((todo, i) => {
+        if (todo.id !== action.payload) {
+          return todo
+        }
+        return {
+          ...todo,
+          completed: !todo.completed
+        }
+      })
     }
 
     case 'todo/colorSelected': {
