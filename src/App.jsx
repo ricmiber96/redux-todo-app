@@ -11,7 +11,7 @@ function App () {
   // store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about stores' })
   // console.log('Initial state: ', store.getState())
   return (
-    <div className="App flex items-center justify-center  bg-purple-900">
+    <div className="App flex items-center justify-center">
       <div className="container flex flex-col  px-4 py-6">
         <Header/>
       <div className="flex flex-row items-start justify-around p-4">

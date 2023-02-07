@@ -33,24 +33,25 @@ export default function TodoListItem ({ todoId }) {
 
   return (
         <>
-        <li className="list-item py-4 text-lg font-semibold bg-gray-700 my-4 px-6 rounded-md">
-            <div className="flex flex-row justify-between">
+        <li className="list-item py-4 text-lg font-semibold bg-gray-700 my-4 px-6 rounded-md shadow-md">
+            <div className="flex flex-row justify-between items-center content-center">
                 <input
-                className="toogle"
+                className={`toogle w-6 h-6 ${completed ? 'accent-purple-700' : ''}`}
                 type="checkbox"
                 checked={completed}
                 onChange={handleCompletedChanged}/>
-                <div className="todo-text">{text}</div>
-                <div className="todo-buttons">
+                <div className={`todo-text ${completed ? 'line-through decoration-2' : 'no-underline'}`}>{text}</div>
+                <div className="todo-buttons text-white">
                 <select
+                    className='bg-gray-700 border border-gray-800 rounded-lg text-white p-4'
                     style={{ color }}
                     value={color}
                     onChange={handleColorChanged}
                 >
-                    <option value=""></option>
+                    <option selected value="">Choose a color</option>
                     {colorOptions}
                 </select>
-                <button className="destroy" onClick={handleDelete}>
+                <button className="deleted ml-4 bg-gray-800 border-2 border-gray-700 p-2.5 rounded-md" onClick={handleDelete}>
                     X
                 </button>
                 </div>

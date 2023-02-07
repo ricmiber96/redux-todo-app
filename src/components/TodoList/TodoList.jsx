@@ -9,7 +9,6 @@ export default function TodoList () {
   // const todos = useSelector(selectTodos)
   const todoIds = useSelector(selectFilteredTodoIds)
   const filter = useSelector(state => state.filters)
-  console.log('HEEEY', todoIds)
 
   const renderListItems = todoIds.map((todoId, i) => {
     return <TodoListItem key={i} todoId={todoId}/>

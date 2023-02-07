@@ -3,7 +3,7 @@ import { StatusFilters } from './filterReducer'
 
 const initialState = [
   { id: 0, text: 'Learn React', completed: true },
-  { id: 1, text: 'Learn Redux', completed: false, color: 'purple' },
+  { id: 1, text: 'Learn Redux', completed: false, color: 'red' },
   { id: 2, text: 'Build something fun!', completed: false, color: 'blue' }
 ]
 
