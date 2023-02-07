@@ -1,6 +1,7 @@
 
 import { React, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { todoAdded } from '../../reducers/todoReducer'
 
 export default function InputAddItem () {
   const [text, setText] = useState('')
@@ -11,7 +12,7 @@ export default function InputAddItem () {
   const handleKeyDown = (e) => {
     const trimmedText = e.target.value.trim()
     if (e.key === 'Enter' && trimmedText) {
-      dispatch({ type: 'todo/todoAdded', payload: trimmedText })
+      dispatch(todoAdded(trimmedText))
       setText('')
     }
   }

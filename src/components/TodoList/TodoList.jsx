@@ -1,16 +1,18 @@
 import { React, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { selectFilteredTodoIds } from '../../reducers/todoReducer'
 import TodoListItem from '../TodoListItem/TodoListItem'
 
 export default function TodoList () {
 //   const selectTodos = state => state.todos
-  const selectTodos = state => state.todos
-  const todos = useSelector(selectTodos)
+  // const selectTodos = state => state.todos
+  // const todos = useSelector(selectTodos)
+  const todoIds = useSelector(selectFilteredTodoIds)
   const filter = useSelector(state => state.filters)
-  console.log('HEEEY', todos, filter)
+  console.log('HEEEY', todoIds)
 
-  const renderListItems = todos.map((todo) => {
-    return <TodoListItem key={todo.id} todoID={todo.id}/>
+  const renderListItems = todoIds.map((todoId, i) => {
+    return <TodoListItem key={i} todoId={todoId}/>
   })
 
   return (

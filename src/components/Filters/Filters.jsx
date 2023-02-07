@@ -1,5 +1,4 @@
-import { React, useState } from 'react'
-import TodoListItem from '../TodoListItem/TodoListItem'
+import { React } from 'react'
 import ColorFilter from './ColorFilter'
 import StatusFilter from './StatusFilter'
 

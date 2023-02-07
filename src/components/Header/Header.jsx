@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import InputAddItem from '../InputAddItem/InputAddItem'
 
 export default function Header () {

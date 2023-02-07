@@ -5,19 +5,11 @@ import TodoList from './components/TodoList/TodoList'
 import Filters from './components/Filters/Filters'
 
 function App () {
-  const [count, setCount] = useState(0)
-  console.log('Initial state: ', store.getState())
-  store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about actions' })
-  store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about reducers' })
-  store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about stores' })
-
-  store.dispatch({ type: 'filters/statusFilterChanged', payload: 'Active' })
-
-  store.dispatch({
-    type: 'filters/colorFilterChanged',
-    payload: { color: 'red', changeType: 'added' }
-  })
-  console.log('Initial state: ', store.getState())
+  // console.log('Initial state: ', store.getState())
+  // store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about actions' })
+  // store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about reducers' })
+  // store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about stores' })
+  // console.log('Initial state: ', store.getState())
   return (
     <div className="App flex items-center justify-center  bg-purple-900">
       <div className="container flex flex-col  px-4 py-6">

@@ -1,28 +1,28 @@
 import { React, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { colorChanged, selectTodoById, todoDeleted, todoToggle } from '../../reducers/todoReducer'
 import { availableColors, capitalize } from '../../utils/colors'
 
-export default function TodoListItem ({ todoID }) {
+export default function TodoListItem ({ todoId }) {
   const dispatch = useDispatch()
 
-  const selectTodoById = (state, todoId) => {
-    return state.todos.find((todo) => todo.id === todoId)
-  }
+  const todo = useSelector((state) => {
+    return selectTodoById(state, todoId)
+  })
 
-  const todo = useSelector((state) => selectTodoById(state, todoID))
   const { text, completed, color } = todo
 
   const handleCompletedChanged = (e) => {
-    dispatch({ type: 'todo/todoToggle', payload: todo.id })
+    dispatch(todoToggle(todo.id))
   }
 
   const handleColorChanged = (e) => {
     const color = e.target.value
-    dispatch({ type: 'todo/colorSelected', payload: { todoId: todo.id, color } })
+    dispatch(colorChanged(todo.id, color))
   }
 
   const handleDelete = () => {
-    dispatch({ type: 'todo/todoDeleted', payload: todo.id })
+    dispatch(todoDeleted(todo.id))
   }
 
   const colorOptions = availableColors.map((color, i) => (
